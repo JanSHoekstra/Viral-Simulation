@@ -27,8 +27,8 @@ namespace corsim
 class Subject
 {
 public:
-    Subject(int x, int y, int radius, bool infected, MovementStrategy* mvStrat):
-	mvStrat(mvStrat), _x(x),_y(y), _infected(infected), _radius(radius){};
+    Subject(int radius, bool infected, MovementStrategy* mvStrat):
+	mvStrat(mvStrat), _infected(infected), _radius(radius){};
     double x();
     double y();
     void set_x(double x);
@@ -45,7 +45,6 @@ public:
     
     MovementStrategy* mvStrat = new RegularMovementStrategy(0,0);
 private:
-    double _x = 0,_y = 0, _dx = 0, _dy = 0;
     bool _infected = false;
     int _radius = 0;
 };
