@@ -37,8 +37,8 @@ class Subject
         void set_dx(double dx);
         void set_dy(double dy);
         bool infected();
-        void infect();
-        double angle();
+    void getVirus();
+    double angle();
         double speed();
     private:
         double _x = 0,_y = 0, _dx = 0, _dy = 0;

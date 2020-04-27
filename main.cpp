@@ -51,7 +51,7 @@ int main() {
 
         if(i == SUBJECT_COUNT-1)
         {
-            su.infect();
+            su.getVirus();
         }
 
         s.add_subject(std::move(su));

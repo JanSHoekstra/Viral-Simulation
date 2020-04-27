@@ -154,9 +154,9 @@ void Simulation::subject_collision(Subject& s1, Subject& s2)
     {
         if(s1.infected() || s2.infected())
         {
-            s1.infect();
-            s2.infect();
-        }        
+            s1.getVirus();
+            s2.getVirus();
+        }
 
         double theta1 = s1.angle();
         double theta2 = s2.angle();

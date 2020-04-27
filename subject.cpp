@@ -78,15 +78,15 @@ bool Subject::infected()
     return this->_infected;
 }
 
-void Subject::infect()
-{
-    this->_infected = true;
-}
+    void Subject::getVirus()
+    {
+	this->_infected = true;
+    }
 
-double Subject::angle()
-{
-    return atan2(_dy,_dx);
-}
+    double Subject::angle()
+    {
+	return atan2(_dy,_dx);
+    }
 
 double Subject::speed()
 {
