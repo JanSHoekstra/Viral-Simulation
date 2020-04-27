@@ -81,10 +81,11 @@ void Simulation::tick()
         s.set_x(s.x() + s.dx() * dt);
         s.set_y(s.y() + s.dy() * dt);
 
-        if(s.infected())
-        {
-            numberInfected++;
-        }
+	s.tick();
+	
+	if(s.infected()) {
+	    ++numberInfected;
+	}
     }
 
     if(counter % 30 == 0)
@@ -108,10 +109,14 @@ void Simulation::draw_to_canvas()
     {
         CanvasColor c = BLUE;
 
-        if(s.infected())
-            c = RED;
-	if(s.immune())
+        if(s.infected()){
+	    c = RED;
+	    std::cout << "infected\n";
+	}
+	if(s.immune()){
 	    c = GREEN;
+	    std::cout << "!!immune\n";
+	}
 
 	_canvas.get()->draw_ellipse(s.x(), s.y(), s.radius(), c);
     }

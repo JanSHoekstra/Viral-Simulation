@@ -18,9 +18,9 @@
 #include "movement_strategy.hpp"
 
 //INFECTION lasts a certain amount of ticks.
-constexpr int INFECTION = 100;
+constexpr int INFECTION = 300;
 //Immunity lasts a certain amount of ticks.
-constexpr int IMMUNITY = 200;
+constexpr int IMMUNITY = 300;
 
 namespace corsim
 {
@@ -48,6 +48,7 @@ public:
     void getVirus();
     double angle();
     double speed();
+    void tick();
     
     MovementStrategy* mvStrat = new RegularMovementStrategy(0,0);
 private:

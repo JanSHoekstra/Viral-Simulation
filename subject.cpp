@@ -90,4 +90,19 @@ namespace corsim
 	return sqrt(dx() * dx() + dy() * dy());
     }
 
+    void Subject::tick()
+    {
+	if(_immune > 0) {
+	    --_immune;
+	}
+
+	if(_infection > 1){
+	    --_infection;
+	}
+
+	if(_infection == 1){
+	    --_infection;
+	    _immune = IMMUNITY;
+	}
+    }
 }
