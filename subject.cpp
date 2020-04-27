@@ -76,12 +76,12 @@ namespace corsim
 
     double Subject::angle()
     {
-	return atan2(_dy,_dx);
+	return atan2(dy(),dx());
     }
 
 double Subject::speed()
 {
-    return sqrt(_dx * _dx + _dy * _dy);
+    return sqrt(dx() * dx() + dy() * dy());
 }
 
 }
