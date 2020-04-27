@@ -19,64 +19,55 @@
 
 namespace corsim
 {
+    double Subject::x()
+    {
+	return this->mvStrat->x();
+    }
 
-Subject::Subject(int x, int y, int radius, bool infected)
-{
-    this->_x = x;
-    this->_y = y;
-    this->_radius = radius;
-    this->_infected = infected;
-}
+    double Subject::y()
+    {
+	return this->mvStrat->y();
+    }
 
-double Subject::x()
-{
-    return this->_x;
-}
+    void Subject::set_x(double x)
+    {
+	this->mvStrat->set_x(x);
+    }
 
-double Subject::y()
-{
-    return this->_y;
-}
+    void Subject::set_y(double y)
+    {
+	this->mvStrat->set_y(y);
+    }
 
-void Subject::set_x(double x)
-{
-    this->_x = x;
-}
+    double Subject::dx()
+    {
+	return this->mvStrat->dx();
+    }
 
-void Subject::set_y(double y)
-{
-    this->_y = y;
-}
+    double Subject::dy()
+    {
+	return this->mvStrat->dy();
+    }
 
-double Subject::dx()
-{
-    return this->_dx;
-}
+    void Subject::set_dx(double dx)
+    {
+	this->mvStrat->set_dx(dx);
+    }
 
-double Subject::dy()
-{
-    return this->_dy;
-}
+    void Subject::set_dy(double dy)
+    {
+	this->mvStrat->set_dy(dy);
+    }
 
-void Subject::set_dx(double dx)
-{
-    this->_dx = dx;
-}
+    int Subject::radius()
+    {
+	return this->_radius;
+    }
 
-void Subject::set_dy(double dy)
-{
-    this->_dy = dy;
-}
-
-int Subject::radius()
-{
-    return this->_radius;
-}
-
-bool Subject::infected()
-{
-    return this->_infected;
-}
+    bool Subject::infected()
+    {
+	return this->_infected;
+    }
 
     void Subject::getVirus()
     {

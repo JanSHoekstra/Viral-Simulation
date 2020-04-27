@@ -15,6 +15,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once 
+#include "movement_strategy.hpp"
 
 namespace corsim
 {
@@ -25,25 +26,28 @@ namespace corsim
  */
 class Subject
 {
-    public:
-        Subject(int x, int y, int radius, bool infected);
-        double x();
-        double y();
-        void set_x(double x);
-        void set_y(double y);
-        double dx(); //Speed on x axis
-        double dy(); //Speed on y axis
-        int radius(); //Radius needed for collisions
-        void set_dx(double dx);
-        void set_dy(double dy);
-        bool infected();
+public:
+    Subject(int x, int y, int radius, bool infected, MovementStrategy* mvStrat):
+	mvStrat(mvStrat), _x(x),_y(y), _infected(infected), _radius(radius){};
+    double x();
+    double y();
+    void set_x(double x);
+    void set_y(double y);
+    double dx(); //Speed on x axis
+    double dy(); //Speed on y axis
+    int radius(); //Radius needed for collisions
+    void set_dx(double dx);
+    void set_dy(double dy);
+    bool infected();
     void getVirus();
     double angle();
-        double speed();
-    private:
-        double _x = 0,_y = 0, _dx = 0, _dy = 0;
-        bool _infected = false;
-        int _radius = 0;
+    double speed();
+    
+    MovementStrategy* mvStrat = new RegularMovementStrategy(0,0);
+private:
+    double _x = 0,_y = 0, _dx = 0, _dy = 0;
+    bool _infected = false;
+    int _radius = 0;
 };
 
 };
