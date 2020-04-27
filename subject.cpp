@@ -66,12 +66,18 @@ namespace corsim
 
     bool Subject::infected()
     {
-	return this->_infected;
+	return this->_infection > 0;
+    }
+
+    bool Subject::immune()
+    {
+	return this->_immune > 0;
     }
 
     void Subject::getVirus()
     {
-	this->_infected = true;
+	if(!_immune)
+	    this->_infection = INFECTION;
     }
 
     double Subject::angle()
@@ -79,9 +85,9 @@ namespace corsim
 	return atan2(dy(),dx());
     }
 
-double Subject::speed()
-{
-    return sqrt(dx() * dx() + dy() * dy());
-}
+    double Subject::speed()
+    {
+	return sqrt(dx() * dx() + dy() * dy());
+    }
 
 }

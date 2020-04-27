@@ -17,6 +17,11 @@
 #pragma once 
 #include "movement_strategy.hpp"
 
+//INFECTION lasts a certain amount of ticks.
+constexpr int INFECTION = 100;
+//Immunity lasts a certain amount of ticks.
+constexpr int IMMUNITY = 200;
+
 namespace corsim
 {
     
@@ -27,8 +32,8 @@ namespace corsim
 class Subject
 {
 public:
-    Subject(int radius, bool infected, MovementStrategy* mvStrat):
-	mvStrat(mvStrat), _infected(infected), _radius(radius){};
+    Subject(int radius, int infected, MovementStrategy* mvStrat):
+	mvStrat(mvStrat), _infection(infected), _radius(radius){};
     double x();
     double y();
     void set_x(double x);
@@ -39,13 +44,15 @@ public:
     void set_dx(double dx);
     void set_dy(double dy);
     bool infected();
+    bool immune();
     void getVirus();
     double angle();
     double speed();
     
     MovementStrategy* mvStrat = new RegularMovementStrategy(0,0);
 private:
-    bool _infected = false;
+    int _infection = INFECTION;
+    int _immune = 0;
     int _radius = 0;
 };
 

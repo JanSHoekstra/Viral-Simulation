@@ -109,11 +109,11 @@ void Simulation::draw_to_canvas()
         CanvasColor c = BLUE;
 
         if(s.infected())
-        {
             c = RED;
-        }
+	if(s.immune())
+	    c = GREEN;
 
-        _canvas.get()->draw_ellipse(s.x(), s.y(), s.radius(), c);
+	_canvas.get()->draw_ellipse(s.x(), s.y(), s.radius(), c);
     }
 }
 
